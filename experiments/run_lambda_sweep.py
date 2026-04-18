@@ -33,7 +33,9 @@ from torch.utils.data import DataLoader
 from neuroprune import BottleneckMLP, NeuroPruneTrainer, NeuroPruneVisualizer
 
 # ── Configuration ─────────────────────────────────────────────────────────────
-LAMBDAS = [1e-4, 1e-3, 1e-2]
+# With SparsityLoss using .sum(), λ values must be much smaller than with .mean()
+# For ~4M parameters, λ=1e-6 applies a global pressure similar to λ=4.0 with mean.
+LAMBDAS = [1e-7, 5e-7, 1e-6] 
 NUM_EPOCHS = 30
 BATCH_SIZE = 256
 LEARNING_RATE = 1e-3

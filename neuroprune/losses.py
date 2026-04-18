@@ -69,9 +69,9 @@ class SparsityLoss(nn.Module):
             # No prunable layers found — return zero loss safely
             return torch.tensor(0.0, requires_grad=True)
 
-        # Concatenate all gates and compute mean L1 norm
+        # Concatenate all gates and compute the sum (L1 norm for positive sigmoid gates)
         all_gates = torch.cat(gate_values)
-        return all_gates.mean()
+        return all_gates.sum()
 
     def extra_repr(self) -> str:
         return "penalty=L1, gates=sigmoid(gate_scores), auto_discover=True"
