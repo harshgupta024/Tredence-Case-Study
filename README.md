@@ -186,4 +186,4 @@ Epoch | Train Loss |  CE Loss | Sparse Loss | Test Acc | Sparsity%
 
 ## License
 
-MIT — use freely, cite kindly.
+Harsh Gupta (RA2512005010054)
